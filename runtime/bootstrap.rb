@@ -1,13 +1,19 @@
 # Bootstrap the runtime. This is where we assemble all the classes and objects together
 # to form the runtime.
 
-Klass = RClass.new("Class")                     # Class
+# We use Klass/Obzect, as ruby has Class/Object as reserved word
+
+# Everything is a Ruby object, so Klass/Ozbect is an instance of RClass
+Klass = RClass.new("Class")     # Class
 Klass.runtime_class = Klass     # Class.class = Class
-Obzect = RClass.new("Object")                    # Object = Class.new
+Obzect = RClass.new("Object")   # Object = Class.new
 Obzect.runtime_class = Klass    # Object.class = Class
 
-Runtime = Context.new(Obzect.new) # Object.new
+Runtime = Context.new(Obzect.new) # Object.new, beware that current_self is an instance of an obzect
+Runtime.setToplevel()
 
+# Runtime's [] accesses @@ (class variable), so whatever is accessed with []
+# is globally available.
 Runtime["Class"] = Klass
 Runtime["Object"] = Obzect
 Runtime["Number"] = RClass.new("Number", "Object")

@@ -1,8 +1,7 @@
 # Represents a class in the Ruby world. Classes are objects in runtime so they
 # inherit from RObject.
 class RClass < RObject
-  attr_reader :name, :parent_name, :runtime_methods
-  attr_accessor :instance_vars
+  attr_reader :name, :parent_name, :runtime_methods, :instance_vars
 
   # Creates a new class. Number is an instance of Class for example.
   def initialize(name = nil, parent_name = nil)
@@ -49,17 +48,6 @@ class RClass < RObject
       end
     end
 
-    # unless method
-    #   topLevel = Runtime["__toplevelRuntime__"].current_class
-    #   unless self == topLevel
-    #     method = topLevel.lookup(method_name)
-    #     # If the class does not have the method
-    #     # It tries again to get the toplevel environment, and tries again
-    #   end
-    #   unless method
-    #     raise "Method not found: #{method_name}"
-    #   end
-    # end
     method
   end
   
@@ -71,6 +59,10 @@ class RClass < RObject
   # Helper method to add instance variables
   def add(name, default_value)
     @instance_vars[name] = default_value
+  end
+
+  def get(name)
+    @instance_vars[name]
   end
 
   # Create a new instance of this class

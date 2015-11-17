@@ -20,4 +20,13 @@ class RObject
     @runtime_class.lookup(method).call(self, arguments)
   end
 
+  # Helper method to add instance variables
+  def add(name, default_value)
+    @instance_vars[name] = default_value
+  end
+
+  def get(name)
+    @instance_vars[name]
+  end
+
 end

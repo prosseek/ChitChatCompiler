@@ -10,7 +10,6 @@ class Nodes
     end
     return_value || Runtime["nil"]
   end
-
 end
 
 class NumberNode
@@ -43,23 +42,22 @@ class NilNode
   end
 end
 
-class AssignNode
-  def eval(context)
-    value = value.eval(context)
-    if name.start_with?("@@")
-
-    elsif name.start_with?("@") # class instance
-      context.
-    else # local variable
-      context.locals[name] = value
-    end
-
-  end
-end
-
 class ConstantNode
   def eval(context)
     context[name] || raise("Constant not found #{name}")
+  end
+end
+
+# Assign & Call is set and get variables
+# When set the variables, @ and @@ should be checked to store them
+# as instance variables (Object.instance_vars)
+# or class variables in Runtime["__classVariables__"]
+
+class AssignNode
+
+  def eval(context)
+    v = value.eval(context)
+    context.variable_set(name, v)
   end
 end
 
@@ -67,15 +65,7 @@ class CallNode
   def eval(context)
     # a, local var
     if receiver.nil? && arguments.empty?
-      local_variable = context.locals[method]
-      if local_variable != nil
-        local_variable
-      # or is it instance variable?
-      else
-        context.locals[method]
-      end
-
-      # method call
+      context.variable_get(method)
     else
       # receiver.print
       if receiver
@@ -112,6 +102,7 @@ class ClassNode
       context[name] = rclass
     end
 
+    # class context means current_self == current_class
     class_context = Context.new(rclass, rclass)
 
     body.eval(class_context)

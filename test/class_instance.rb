@@ -1,6 +1,7 @@
 class P
+  @x = 10
   def hello2(x)
-    x + 50
+    x + @x
   end
 end
 
