@@ -102,8 +102,8 @@ class Context
           unless v
             raise "ERROR! No #{name} found"
           end
-          v
         end
+        v
       end
     else # local variable
       v = locals[name]

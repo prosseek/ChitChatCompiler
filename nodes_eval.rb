@@ -65,7 +65,8 @@ class CallNode
   def eval(context)
     # a, local var
     if receiver.nil? && arguments.empty?
-      context.variable_get(method)
+      v = context.variable_get(method)
+      v
     else
       # receiver.print
       if receiver
@@ -97,11 +98,11 @@ class ClassNode
     rclass = context[name]
 
     unless rclass # class was not defined
-      pc = context[parent_name]
-      if pc == nil
-        pc = context["Object"]
+      parent_class = context[parent_name]
+      if parent_class == nil
+        parent_class = context["Object"]
       end
-      rclass = RClass.new(name, pc.name)
+      rclass = RClass.new(name, parent_class.name)
       context[name] = rclass
     end
 

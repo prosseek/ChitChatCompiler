@@ -6,7 +6,7 @@ require_relative "runtime/bootstrap"
 
 # Object.new
 Runtime["Class"].def :new do |receiver, arguments|
-  receiver.new
+  receiver.new(arguments)
 end
 
 # print("hi")

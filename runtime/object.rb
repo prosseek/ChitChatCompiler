@@ -4,13 +4,25 @@ class RObject
 
   # Each object have a class (named runtime_class to prevent errors with Ruby's class
   # method). Optionaly an object can hold a Ruby value (eg.: numbers and strings).
-  def initialize(runtime_class, ruby_value=self)
+  def initialize(runtime_class, ruby_value=nil, arguments = [])
+    # I don't use ruby's keyword argument
+    # So, default value for ruby_value is set as self
+    # I have this chage to provide arguments parameter without breaking existing code
+    # When passing argument, use RObject.new(class, nil, arguments)
+    if ruby_value == nil
+      ruby_value = self
+    end
     @runtime_class = runtime_class
     @ruby_value = ruby_value
+    @arguments = arguments
 
     ## Not fully tested
     @instance_vars = {}
     @id = self.id
+
+    if @arguments != []
+      send_message("initialize", @arguments)
+    end
   end
 
   # Call a method on the object.

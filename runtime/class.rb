@@ -66,8 +66,8 @@ class RClass < RObject
   end
 
   # Create a new instance of this class
-  def new
-    RObject.new(self)
+  def new(arguments = [])
+    RObject.new(self, nil, arguments)
   end
   
   # Create an instance of this class that holds a Ruby value. Like a String, 
