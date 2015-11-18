@@ -4,7 +4,7 @@
 $: << "../lib/chitchat"
 
 prg_name = "chitchat"
-require_relative "interpreter"
+require "interpreter"
 require "readline"
 
 if $h # -h option

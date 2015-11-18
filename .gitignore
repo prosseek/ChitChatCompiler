@@ -2,6 +2,10 @@
 
 *.gem
 *.rbc
+
+/lib/chitchat/lexer.rb
+/lib/chitchat/parser.rb
+
 /.config
 /coverage/
 /InstalledFiles
