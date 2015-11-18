@@ -58,7 +58,7 @@ class Context
       # Check if the variable is class variable
       if name.start_with?("@@")
         the_name = current_class.name + "@@" + name
-        @@constants[the_name] = v
+        @@constants[the_name] = value
       else
         # name starts with single "@"
         if in_class
@@ -74,6 +74,10 @@ class Context
     else # local variable
       locals[name] = value
     end
+  end
+
+  def global_variable_get(name)
+    @@constants["__toplevel__"].locals[name]
   end
 
   def variable_get(name)
@@ -102,7 +106,14 @@ class Context
         end
       end
     else # local variable
-      locals[name]
+      v = locals[name]
+      unless v
+        v = global_variable_get(name)
+        unless v
+          raise "No variable #{name} found"
+        end
+      end
+      v
     end
   end
 end

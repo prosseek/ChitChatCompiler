@@ -5,7 +5,7 @@ class Nodes
   # variables, current class, etc.).
   def eval(context)
     return_value = nil
-    nodes.each do |node|
+    nodes.each_with_index do |node, index|
       return_value = node.eval(context)
     end
     return_value || Runtime["nil"]
@@ -75,9 +75,12 @@ class CallNode
         value = context.current_self
       end
 
-      evaluated_arguments = arguments.map { |arg| arg.eval(context) }
-      value.send_message(method, evaluated_arguments)
-
+      if value
+        evaluated_arguments = arguments.map { |arg| arg.eval(context) }
+        value.send_message(method, evaluated_arguments)
+      else
+        raise("ERROR! value is null, method #{method}")
+      end
     end
   end
 end
