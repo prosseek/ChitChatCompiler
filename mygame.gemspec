@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "racc", "1.4.13"
   spec.add_development_dependency "rexical", "1.0.5"
+  spec.add_development_dependency "test-unit", "1.2.3"
+
 end

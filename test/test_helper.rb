@@ -1,4 +1,3 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'mygame'
-
-require 'minitest/autorun'
+#$:.unshift File.expand_path("../../", __FILE__)
+$: << "../lib/chitchat"
+require "test/unit"

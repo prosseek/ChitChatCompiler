@@ -5,40 +5,43 @@ class Nodes
   # variables, current class, etc.).
   def eval(context)
     return_value = nil
-    nodes.each_with_index do |node, index|
+    nodes.each_with_index do |node, _|
       return_value = node.eval(context)
     end
-    return_value || Runtime["nil"]
+    return_value || Runtime['nil']
   end
 end
 
 class NumberNode
   def eval(context)
-    Runtime["Number"].new_with_value(value)
+    Runtime['Number'].new_with_value(value)
   end
 end
 
 class StringNode
   def eval(context)
-    Runtime["String"].new_with_value(value)
+    Runtime['String'].new_with_value(value)
   end
 end
 
 class TrueNode
+  # noinspection RubyUnusedLocalVariable
   def eval(context)
-    Runtime["true"]
+    Runtime['true']
   end
 end
 
 class FalseNode
+  # noinspection RubyUnusedLocalVariable
   def eval(context)
-    Runtime["false"]
+    Runtime['false']
   end
 end
 
 class NilNode
+  # noinspection RubyUnusedLocalVariable
   def eval(context)
-    Runtime["nil"]
+    Runtime['nil']
   end
 end
 
@@ -62,6 +65,7 @@ class AssignNode
 end
 
 class CallNode
+  # noinspection RubyArgCount
   def eval(context)
     # a, local var
     if receiver.nil? && arguments.empty?
@@ -99,7 +103,7 @@ class ClassNode
     unless rclass # class was not defined
       parent_class = context[parent_name]
       if parent_class == nil
-        parent_class = context["Object"]
+        parent_class = context['Object']
       end
       rclass = RClass.new(name, parent_class.name)
       context[name] = rclass
@@ -114,6 +118,7 @@ class ClassNode
   end
 end
 
+# noinspection RubyResolve
 class IfNode
   def eval(context)
     ### Exercise
@@ -126,11 +131,12 @@ class IfNode
     elsif else_body
       else_body.eval(context)
     else
-      Runtime["nil"]
+      Runtime['nil']
     end
   end
 end
 
+# noinspection RubyResolve
 class WhileNode
   def eval(context)
     while condition.eval(context).ruby_value
