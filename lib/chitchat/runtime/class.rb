@@ -66,6 +66,7 @@ class RClass < RObject
   end
 
   # Create a new instance of this class
+  # Class's new makes an object
   def new(arguments = [])
     RObject.new(self, nil, arguments)
   end

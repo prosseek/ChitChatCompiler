@@ -94,26 +94,26 @@ class Context
       else
         # name starts with single "@"
         the_object = current_self
-        v = the_object.get(name)
+        value = the_object.get(name)
 
-        unless v
+        unless value
           the_class = current_class
-          v = the_class.get(name)
-          unless v
+          value = the_class.get(name)
+          unless value
             raise "ERROR! No #{name} found"
           end
         end
-        v
+        value
       end
     else # local variable
-      v = locals[name]
-      unless v
-        v = global_variable_get(name)
-        unless v
+      value = locals[name]
+      unless value
+        value = global_variable_get(name)
+        unless value
           raise "No variable #{name} found"
         end
       end
-      v
+      value
     end
   end
 end

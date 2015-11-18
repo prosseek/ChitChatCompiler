@@ -65,8 +65,7 @@ class CallNode
   def eval(context)
     # a, local var
     if receiver.nil? && arguments.empty?
-      v = context.variable_get(method)
-      v
+      context.variable_get(method)
     else
       # receiver.print
       if receiver

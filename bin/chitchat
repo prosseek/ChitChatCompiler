@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby -s
 # NotRuby interpreter
 #$:.unshift File.expand_path("..", __FILE__)
-$: << "."
+$: << "../lib/chitchat"
+
 prg_name = "chitchat"
 require_relative "interpreter"
 require "readline"
