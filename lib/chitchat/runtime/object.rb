@@ -23,6 +23,7 @@ class RObject
     if @arguments != []
       send_message("initialize", @arguments)
     end
+
   end
 
   # Call a method on the object.
@@ -33,11 +34,11 @@ class RObject
   end
 
   # Helper method to add instance variables
-  def add(name, default_value)
+  def add_instance_var(name, default_value)
     @instance_vars[name] = default_value
   end
 
-  def get(name)
+  def get_instance_var(name)
     @instance_vars[name]
   end
 
