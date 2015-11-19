@@ -7,7 +7,7 @@ class IdTest < Test::Unit::TestCase
 
   def test_base_class1
     code = <<-CODE
-10
+30
     CODE
 
     test_code = code
