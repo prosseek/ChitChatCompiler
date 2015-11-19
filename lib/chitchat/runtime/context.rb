@@ -64,11 +64,11 @@ class Context
         if in_class
           # when in class, it fills in the instance_vars in the class
           the_class = current_class
-          the_class.add(name, value)
+          the_class.add_instance_var(name, value)
         else
           # if in function body context
           the_object = current_self
-          the_object.add(name, value)
+          the_object.add_instance_var(name, value)
         end
       end
     else # local variable
@@ -94,11 +94,11 @@ class Context
       else
         # name starts with single "@"
         the_object = current_self
-        value = the_object.get(name)
+        value = the_object.get_instance_var(name)
 
         unless value
           the_class = current_class
-          value = the_class.get(name)
+          value = the_class.get_instance_var(name)
           unless value
             raise "ERROR! No #{name} found"
           end
