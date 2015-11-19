@@ -1,3 +1,3 @@
-#$:.unshift File.expand_path("../../", __FILE__)
-$: << "../lib/chitchat"
-require "test/unit"
+$:.unshift File.expand_path("../../lib/chitchat", __FILE__)
+#$: << '../lib/chitchat' # This does not work
+require 'test/unit'

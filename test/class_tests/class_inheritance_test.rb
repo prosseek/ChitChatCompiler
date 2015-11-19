@@ -1,5 +1,7 @@
-require File.dirname(__FILE__) + '/test_helper'
-require "interpreter"
+# .. means the enclosing directory, and ../.. means the parent directory
+$:.unshift File.expand_path("../../", __FILE__)
+require 'test_helper'
+require 'interpreter'
 
 class ClassInheritanceTest < Test::Unit::TestCase
   # This is the class code that is common to all nodes
