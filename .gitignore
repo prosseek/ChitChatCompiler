@@ -2,6 +2,7 @@
 
 *.gem
 *.rbc
+.DS_Store
 
 /lib/chitchat/lexer.rb
 /lib/chitchat/parser.rb
