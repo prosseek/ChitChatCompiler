@@ -11,7 +11,6 @@ class Interpreter
   end
 
   def eval(code, debug=false)
-    p "Hello, world"
     nodes = @parser.parse(code)
     if debug
       nodes.show

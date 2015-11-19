@@ -18,7 +18,7 @@ class RObject
 
     ## Not fully tested
     @instance_vars = {}
-    @id = self.id
+    @id = self.object_id
 
     if @arguments != []
       send_message("initialize", @arguments)
