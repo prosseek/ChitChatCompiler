@@ -16,7 +16,7 @@ class IdTest < Test::Unit::TestCase
 
   def test_base_class2
     code = <<-CODE
-x = 100
+x = 10
 y = x.id
 x.id - y
     CODE
