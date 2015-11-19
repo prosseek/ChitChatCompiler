@@ -8,7 +8,7 @@ class RClass < RObject
     @runtime_methods = {}
 
     # instance_vars in RClass has the map of variable name to default value
-    # instance_vars in RObject has the assigned value from users, when the value is not in object, the value in the class
+    # instance_vars in RObject has the assigned value from users, when the value is not in object_tests, the value in the class
     # should be found
     @instance_vars = {}
 
@@ -66,7 +66,7 @@ class RClass < RObject
   end
 
   # Create a new instance of this class
-  # Class's new makes an object
+  # Class's new makes an object_tests
   def new(arguments = [])
     RObject.new(self, nil, arguments)
   end

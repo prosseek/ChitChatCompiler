@@ -23,7 +23,7 @@ class RuntimeTest < Test::Unit::TestCase
     # Mimic Object.new in the language
     object = Runtime["Object"].send_message("new")
     
-    assert_equal Runtime["Object"], object.runtime_class # assert object is an Object
+    assert_equal Runtime["Object"], object.runtime_class # assert object_tests is an Object
   end
   
   def test_a_class_is_a_class

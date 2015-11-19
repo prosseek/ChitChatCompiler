@@ -1,9 +1,9 @@
-# Represents an Awesome object instance in the Ruby world.
+# Represents an Awesome object_tests instance in the Ruby world.
 class RObject
   attr_accessor :runtime_class, :ruby_value, :id, :instance_vars
 
-  # Each object have a class (named runtime_class to prevent errors with Ruby's class
-  # method). Optionaly an object can hold a Ruby value (eg.: numbers and strings).
+  # Each object_tests have a class (named runtime_class to prevent errors with Ruby's class
+  # method). Optionaly an object_tests can hold a Ruby value (eg.: numbers and strings).
   def initialize(runtime_class, ruby_value=nil, arguments = [])
     # I don't use ruby's keyword argument
     # So, default value for ruby_value is set as self
@@ -26,10 +26,10 @@ class RObject
 
   end
 
-  # Call a method on the object.
+  # Call a method on the object_tests.
   def send_message(method, arguments=[])
     # Like a typical Class-based runtime model, we store methods in the class of the
-    # object.
+    # object_tests.
     @runtime_class.lookup(method).call(self, arguments)
   end
 
