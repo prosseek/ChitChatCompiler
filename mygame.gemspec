@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.files         += ["lib/chitchat/parser.rb", "lib/chitchat/lexer.rb"]
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = "chitchat"
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
