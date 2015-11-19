@@ -1,7 +1,7 @@
 # Represents the evaluation context, that tracks values that change depending on where 
 # the code is evaluated.
 # - "locals" holds local variables.
-# - "current_self" is the object_tests on which methods with no receivers are called,
+# - "current_self" is the object on which methods with no receivers are called,
 #   eg.: print is like current_self.print
 # - "current_class" is the class on which methods are defined with the "def" keyword.
 class Context
@@ -43,7 +43,7 @@ class Context
   end
 
   # In bootstrap, we have Runtime = Context.new(Obzect.new)
-  # So, in global context, the name of current context's object_tests is "Object"
+  # So, in global context, the name of current context's object is "Object"
   def in_global()
     @toplevel
   end

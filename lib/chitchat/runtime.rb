@@ -16,7 +16,7 @@ Runtime['Object'].def :print do |_, arguments| # _ is a receiver
 end
 
 # 1. it allocates a new id method in @runtime_class
-# 2. it creates a method object_tests that can be called.
+# 2. it creates a method object that can be called.
 Runtime['Object'].def :id do |receiver| # _ is a receiver
   v = receiver.id
   Runtime['Number'].new_with_value v
