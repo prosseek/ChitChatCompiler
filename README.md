@@ -4,6 +4,10 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Build
+1. Change to lib/chitchat directory
+2. Execute 'rake' to generate lexer.rb and parser.rb code.
+
 ## Installation
 
 Add this line to your application's Gemfile:
