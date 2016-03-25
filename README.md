@@ -1,40 +1,45 @@
 # ChitChat Compiler
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mygame`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem! In this directory, you'll find the files you need 
+to be able to package up your Ruby library into a gem. 
+Put your Ruby code in the file `lib/chitchat`. 
+To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
-## Build
-1. Change to lib/chitchat directory
-2. Execute 'rake' to generate lexer.rb and parser.rb code.
+## Build & Test 
+1. Execute 'rake build'  
+    1. to generate lexer.rb and parser.rb code.
+    2. to generate ChitChat-0.1.0.gem in the pkg directory.
+2. Execute 'rake test' or just 'rake'
+    1. to run the test code.   
 
 ## Installation
 
-Add this line to your application's Gemfile:
+execute `bundle` 
 
-```ruby
-gem 'mygame'
-```
+    Resolving dependencies...
+    Using rake 10.4.2
+    Using Chitchat 0.1.0 from source at `.`
+    ...
+    Using test-unit 1.2.3
+    Using rspec 3.4.0
+    Bundle complete! 8 Gemfile dependencies, 14 gems now installed.
+    Use `bundle show [gemname]` to see where a bundled gem is installed.
 
-And then execute:
+The `Gemfile.lock` is created. 
 
-    $ bundle
+### Installation location
 
-Or install it yourself as:
+`gem environment' shows the gem directory. 
 
-    $ gem install mygame
+    - GEM PATHS:
+        - /Users/smcho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0
+        - /Users/smcho/.gem/ruby/2.2.0
 
 ## Usage
 
-TODO: Write usage instructions here
 
-## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mygame.
 

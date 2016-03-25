@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'chitchat/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ChitChat"
-  spec.version       = ChitChat::VERSION
+  spec.name          = "chitchat"
+  spec.version       = Chitchat::VERSION
   spec.authors       = ["smcho"]
   spec.email         = ["sm.cho@mac.com"]
 
