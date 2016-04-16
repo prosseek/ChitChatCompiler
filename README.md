@@ -8,13 +8,18 @@ To experiment with that code, run `bin/console` for an interactive prompt.
 TODO: Delete this and the text above, and describe your gem
 
 ## Build & Test 
+
+If necessary, use git to synchronize the files in the local directory. 
+In *.gemspec, it uses the git command ``git ls-files -z`.split("\x0")` to get the
+list of files. Refer to <http://stackoverflow.com/questions/6256743/while-executing-gem-extconf-rb-are-not-files>
+
 1. Execute 'rake build'  
     1. to generate lexer.rb and parser.rb code.
     2. to generate ChitChat-0.1.0.gem in the pkg directory.
 2. Execute 'rake test' or just 'rake'
     1. to run the test code.   
 
-## Installation
+## Bundle & Installation
 
 execute `bundle` 
 
@@ -29,7 +34,11 @@ execute `bundle`
 
 The `Gemfile.lock` is created. 
 
-### Installation location
+### Install
+
+execute `gem install pkg/chitchat-0.1.0.gem`
+
+#### Installation location
 
 `gem environment' shows the gem directory. 
 
@@ -37,9 +46,13 @@ The `Gemfile.lock` is created.
         - /Users/smcho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0
         - /Users/smcho/.gem/ruby/2.2.0
 
+You can find the installed gem in `/Users/smcho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/chitchat-0.1.0`. 
+
 ## Usage
 
+You can use `require` to use the installed gem. 
 
-
-
+    smcho@macho ~> irb
+    >> require 'chitchat'
+    => true
 
